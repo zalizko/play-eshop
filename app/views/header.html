@@ -1,0 +1,80 @@
+<div id="header">
+
+	<div class="container">
+		<div style="float: right;">
+			#{if request.controller != "Login"}
+				#{if user}
+					${user.customer.firstName} ${user.customer.lastName}
+					<a href="@{Login.logout}">&{'topmenu.logout'}</a>
+				#{/if}
+				#{else}
+					<a href="@{Login.login}">&{'topmenu.login'}</a>
+				#{/else}
+			#{/if}
+		</div>
+
+		<a href="@{Application.index}">&{'topmenu.home'}</a>
+		
+		#{if request.controller != "Order" && request.controller != "Login"}
+			<a href="@{Search.index}" class="search">&{'topmenu.search'}</a>
+		#{/if}
+		
+		#{if user && request.controller != "Order"}
+			<a href="@{Order.index}">&{'basket'}</a> (<span class="basketTotalTaken">${basketSize}</span> &{'backet.items'})
+		#{/if}
+	</div>
+
+	<div style="clear:both;"></div>
+
+	<div id="search" class="slideBlock">
+		<form action="@{Search.index}" method="GET">
+			<div class="container">
+				<div>
+					<div class="input">
+						<label>&{'search.label.category'}</label>
+						<select name="category">
+							<option> </option>						
+							#{if catalog}
+								#{if currentCategory}
+									#{set current_category_id: currentCategory.productCatalog/}
+								#{/if}
+								#{list items:catalog, as:'c'}
+									#{set selected: "" /}
+									#{if c.productCatalog == current_category_id}
+										#{set selected: "selected" /}
+									#{/if}
+									<option value="${c.productCatalog}" ${selected}>${c.name}</option>
+								#{/list}
+							#{/ if}
+						</select>
+					</div>
+					<div class="input">
+						<label>&{'search.label.name'}</label>
+						<input name="name" value=""/>
+					</div>
+					<div class="input">
+						<label>&{'search.label.description'}</label>
+						<input name="description" value=""/>
+					</div>	
+					<div class="input">
+						<label>&{'search.label.date_adding'}</label>
+						<input name="date_add_start" value="" class="range datepicker" /><span class="ndash">&ndash;</span><input name="date_add_end" value="" class="range datepicker" />
+					</div>	
+					<div class="input">
+						<label>&{'search.label.date_modification'}</label>
+						<input name="date_mod_start" value="" class="range datepicker" /><span class="ndash">&ndash;</span><input name="date_mod_end" value="" class="range datepicker" />
+					</div>
+					<div class="input">
+						<label>&{'search.label.price'}</label>
+						<input name="price_start" value="" class="range" /><span class="ndash">&ndash;</span><input name="price_end" value="" class="range" />
+					</div>
+				</div>	
+			</div>
+			<div class="footer">
+				<a href="#submit">&{'search.button.search'}</a>
+				<a href="#close" class="right">&{'search.button.close'}</a>
+			</div>
+		</form>
+	</div>
+	
+</div>

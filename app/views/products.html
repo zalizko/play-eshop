@@ -1,0 +1,46 @@
+#{ifErrors}
+	<ul id="errors" style="float: left;">
+		#{errors}
+			<li>${error}</li>
+		#{/errors}
+	</ul>
+#{/ifErrors}
+
+#{if products}
+<table id="categoryProducts">
+	#{if currentCategory}
+	<caption>&{'common.category'} "${currentCategory.name}"</caption>
+	#{/if}
+	<thead>
+		<tr>
+			<th>&{'product.product'}</th>
+			<th>&{'product.code'}</th>
+			<th>&{'product.name'}</th>
+			<th>&{'product.description'}</th>
+			<th>&{'product.created'}</th>
+			<th>&{'product.updated'}</th>
+			<th>&{'product.price'}</th>
+			<th>&{'product.producer'}</th>
+			#{if user}
+			<th>&nbsp;</th>
+			#{/if}
+		</tr>
+	</thead>
+	#{list items:products, as:'product'}
+	<tr>
+		<td>${product.product}</td>
+		<td>${product.code}</td>
+		<td>${product.name}</td>
+		<td>${product.description}</td>
+		<td>${product.created}</td>
+		<td>${product.updated}</td>
+		<td>${product.price}</td>
+		<td>${product.producer}</td>
+		#{if user}
+		<td><a href="@{Order.remove(product.product)}" class="quantity_less">-</a><span
+			class="quantity">${product.taken}</span><a href="@{Order.add(product.product)}" class="quantity_more">+</a></td>
+		#{/if}
+	</tr>
+	#{/list}
+</table>
+#{/if}

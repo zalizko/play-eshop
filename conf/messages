@@ -1,0 +1,54 @@
+application.title.prefix = E-SHOP
+
+loading=Loading...
+
+topmenu.home = Home
+topmenu.logout = Logout
+topmenu.login = Login
+topmenu.search = Search
+
+backet.items = items
+title.login=Login
+title.Basket=Basket
+
+common.category=Category
+
+hCategories=Categories
+
+login.sign.in=Sign in
+login.label.login = Username
+login.label.password = Password
+login.login=Login
+login.username.required = Username required.
+login.password.required = Password required.
+login.invalid.credentials = User or password invalid!
+
+products.empty = No products in selected category.
+
+
+
+
+search.label.category=Category
+search.label.name=Name
+search.label.description=Description
+search.label.date_adding=Date adding
+search.label.date_modification=Date modification
+search.label.price=Price
+search.button.search=search
+search.button.close=close
+search.empty = Nothing found
+
+
+product.product=Product
+product.code=Code
+product.name=Name
+product.description=Description
+product.created=Created
+product.updated=Updated
+product.price=Price
+product.producer=Producer
+
+
+basket=Basket
+backet.empty=Backet is empty.
+backet.total.size=Total products

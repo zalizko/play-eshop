@@ -1,0 +1,10 @@
+#{if catalog}
+<div id="categories" class="box">
+	<h3>&{'hCategories'}</h3>
+	<ul>
+		#{list items:catalog, as:'c'}
+		<li><a href="@{Categories.category(c.productCatalog)}">${c.name}</a></li>
+		#{/list}
+	</ul>
+</div>
+#{/ if}

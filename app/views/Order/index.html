@@ -1,0 +1,14 @@
+#{extends 'main.html'/}
+#{set title:'Basket' /}
+#{include 'header.html'/}
+#{include 'Categories/categories.html'/}
+<div id="content">
+	#{include 'products.html'/}
+	
+	#{if basketSize == 0}
+		&{'backet.empty'}
+	#{/if}
+	#{else}
+		&{'backet.total.size'}: <span class="basketTotalTaken">${basketSize}</span>
+	#{/else}
+</div>

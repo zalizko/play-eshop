@@ -1,0 +1,23 @@
+#{extends 'main.html' /}
+#{include 'header.html' /}
+#{set 'title'}&{'title.login'}#{/set}
+
+<form id="form-login" action="@{Login.login}" method="POST">
+	#{ifErrors} #{errors}
+	<li>${error}</li> #{/errors} #{/ifErrors}
+	<fieldset>
+		<legend>&{'login.sign.in'}</legend>
+		<ul>
+			<li><label for="username">
+					<span class="required">&{'login.label.login'}:</span>
+				</label> <input id="username" name="username" class="text required" type="text" /></li>
+
+			<li><label for="password">
+					<span class="required">&{'login.label.password'}:</span>
+				</label> <input name="password" type="password" class="text required" id="password" minlength="4"
+				maxlength="20" /></li>
+		</ul>
+		<input type="submit" class="button" value="&{'login.login'}" style="float: right" />
+	</fieldset>
+	<div class="clear"></div>
+</form>

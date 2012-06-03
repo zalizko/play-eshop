@@ -1,0 +1,11 @@
+#{extends 'main.html' /}
+#{set 'title'}&{'common.category'} "${currentCategory.name}"#{/set}
+#{include 'header.html' /}
+#{include 'Categories/categories.html'/}
+
+<div id="content">
+	#{include 'products.html'/}
+	#{if !products}
+		&{'products.empty'}
+	#{/if}
+</div>
