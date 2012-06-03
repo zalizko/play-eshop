@@ -15,3 +15,6 @@ For starting application localy you need:
 		* import into your database file database.sql
 		* configure file conf/application.cofif
 	- run 'play run' from your command line
+	
+
+p.s. username: admin; password: 123
